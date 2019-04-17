@@ -1,12 +1,14 @@
 <?php
-namespace App\Http\Controllers;
+
+namespace App\Http\Controllers\Api;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 use App\User;
+
 class AuthController extends Controller
 {
-    /**
+	 /**
      * Create user
      *
      * @param  [string] name
@@ -17,11 +19,6 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
-        ]);
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,

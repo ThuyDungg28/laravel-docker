@@ -88,3 +88,8 @@ services:
             - "6379"
         volumes_from:
             - data
+    adminer:
+        image: adminer:latest
+        restart: always
+        ports:
+          - 8888:8888

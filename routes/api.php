@@ -24,4 +24,8 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
     });
+
+    Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], function () {
+    Route::resource('companies', 'CompanyController', ['except' => ['create', 'edit']]);
+	});
 });
